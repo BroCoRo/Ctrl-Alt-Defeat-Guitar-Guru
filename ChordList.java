@@ -3,7 +3,7 @@ import java.io.File;
 
 /**
 * This represents all the individual chords making up the chord of the guitar 
-* @author Brodin Collins-Robb
+* @author OWen Garland
 */
 public class ChordList{
   //instance variables
