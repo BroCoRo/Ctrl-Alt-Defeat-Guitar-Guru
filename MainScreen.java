@@ -19,8 +19,6 @@ public class MainScreen extends JFrame implements ActionListener{
   //instance variables 
   private Picture picture;
   private Background Backgrounds;
-  private JComboBox cb;
-  private JButton audioButton;
   private ChordList chordList;
   private String mainChord;
   private String variationType;
@@ -115,12 +113,15 @@ public class MainScreen extends JFrame implements ActionListener{
 	} 
   }
 
+  //Store only one instance of the file so that the action listener can play more than one chord audio clip
+  File soundFile = null;
+  
   /**
   * This is a method that when called will update the screen once the user has selected a chord, this method calls the picture class and will display the fretboard photo as well as the updated information about the chord
   * @param the specific chord with its variation that the user has selected
- * @throws IOException 
- * @throws UnsupportedAudioFileException 
- * @throws LineUnavailableException 
+  * @throws IOException 
+  * @throws UnsupportedAudioFileException 
+  * @throws LineUnavailableException 
   */
   public void updateScreen(String showSelectedChord) throws UnsupportedAudioFileException, IOException, LineUnavailableException{
     //update the image to show the second image and the chord information
@@ -130,17 +131,16 @@ public class MainScreen extends JFrame implements ActionListener{
     JButton audioButton = new JButton("Strum");
     audioButton.setContentAreaFilled(false);
 	
-    
-    //add an action listener 
+	soundFile = new File("Sounds/" + showSelectedChord + ".wav");
+
+	//add an action listener 
     audioButton.addActionListener(new ActionListener() {
 
         @Override
         public void actionPerformed(ActionEvent e) 
         {
-        	
             Clip clip;
 			try {
-				File soundFile = new File("Sounds/" + showSelectedChord + ".wav");
 	        	AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundFile);
 				clip = AudioSystem.getClip();
 				clip.loop(Clip.LOOP_CONTINUOUSLY); // set loop to true
@@ -150,9 +150,6 @@ public class MainScreen extends JFrame implements ActionListener{
 				// TODO Auto-generated catch block
 				e2.printStackTrace();
 			}
-           
-           
-            
         }
     });
     //add the button to the panel
@@ -178,5 +175,6 @@ public class MainScreen extends JFrame implements ActionListener{
     Scene currentChordVariation = currentGeneralChord.getVariation(variationType);
     this.picture.fillChordInfo(currentChordVariation.getXValues(),currentChordVariation.getYValues(),currentChordVariation.getSymbols());
     this.picture.showChordScene();
+
   }
 }
