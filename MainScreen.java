@@ -131,7 +131,17 @@ public class MainScreen extends JFrame implements ActionListener{
     JButton audioButton = new JButton("Strum");
     audioButton.setContentAreaFilled(false);
 	
-	soundFile = new File("Sounds/" + showSelectedChord + ".wav");
+    //sound files cannot include a flat symbol so check for this character and replace it where needed
+    if(showSelectedChord.indexOf('♭') == -1)
+    {
+    	soundFile = new File("Sounds/" + showSelectedChord + ".wav");
+    }
+    else 
+    {
+    	String tempFixedFlatName = showSelectedChord;
+    	tempFixedFlatName = tempFixedFlatName.replace('♭', 'b');
+    	soundFile = new File("Sounds/" + tempFixedFlatName + ".wav");
+	}
 
 	//add an action listener 
     audioButton.addActionListener(new ActionListener() {
