@@ -143,8 +143,7 @@ public class MainScreen extends JFrame implements ActionListener{
 				File soundFile = new File("Sounds/" + showSelectedChord + ".wav");
 	        	AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundFile);
 				clip = AudioSystem.getClip();
-				
-				 clip.loop(Clip.LOOP_CONTINUOUSLY); // set loop to true
+				clip.loop(Clip.LOOP_CONTINUOUSLY); // set loop to true
 				clip.open(audioStream);
 				clip.start();
 			} catch (LineUnavailableException | UnsupportedAudioFileException | IOException e2) {
