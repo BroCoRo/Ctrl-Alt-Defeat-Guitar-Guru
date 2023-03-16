@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 /**
-* This is a chord class, this representes a chord storing information about a particular chord on the guitar like how to play the chord, what the chord sounds like, the name of the chord etc.
+* This is a chord class, this represents a chord storing information about a particular chord on the guitar like how to play the chord, what the chord sounds like, the name of the chord etc.
 * @author Brodin Collins-Robb
 */
 public class Chord{
@@ -10,7 +10,7 @@ public class Chord{
   private Scene[] scene;
 
   /**
-  * this is the constructor for the chord, this takes in the infromation from the scanner and starts filling in information about a chord 
+  * this is the constructor for the chord, this takes in the information from the scanner and starts filling in information about a chord 
   * @param the text being fed in from the scanner 
   */
   public Chord(Scanner information){
@@ -22,7 +22,7 @@ public class Chord{
   }
 
   /**
-  * Acessosor method for finding chords
+  * Getter method for finding chords
   * @return the name of the requested chord variation
   */
   public String getName(){
@@ -32,7 +32,7 @@ public class Chord{
   /**
   * Get the chord information from a specified variation of the pre-determined general chord
   * @param the chord variation needed to be displayed
-  * @return the infromation in the specified scene matching the requested chord variation
+  * @return the information in the specified scene matching the requested chord variation
   */
   public Scene getVariation(String variationName){
     //create a variable to store the index to return as you cannot return a value inside a switch case

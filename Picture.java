@@ -17,7 +17,6 @@ public class Picture extends JComponent{
   private int[] storeY;
   private String[] storeS;
   private boolean showScene;
-  private Font symbolFont;
   private boolean previousBar;
 
   /**
@@ -65,7 +64,7 @@ public class Picture extends JComponent{
     g.drawImage(this.picture, 0, 0, this.getWidth(), this.getHeight(), null);
     //create all the dots and symbols to show all the information about a requested chord
     if(this.showScene == true){
-      //set the infomration varialbes before displaying every chord
+      //set the information variables before displaying every chord
       int iconSize = 12;
       this.previousBar = false;
       Font symbolFont = new Font("arial",Font.BOLD,11);

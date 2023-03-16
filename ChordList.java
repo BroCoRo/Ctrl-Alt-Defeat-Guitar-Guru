@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.io.File;
 
 /**
 * This represents all the individual chords making up the chord of the guitar 
@@ -14,7 +13,7 @@ public class ChordList{
   * @param the scanner input
   */
   public ChordList(Scanner scanner){
-    //create the array with 288 postions for the chords 
+    //create the array with 288 positions for the chords 
     this.guitar = new Chord[12];
     //create a for loop to fill the array-information from scanner is to be sent to the Chord class 
     for(int i = 0; i < 12; i++){

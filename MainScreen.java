@@ -4,6 +4,12 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.util.Scanner;
 import java.io.File;
+import java.io.IOException;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.sound.sampled.Clip;
 
 /**
 * Create a mainscreen that will display everything that happens in the app
@@ -14,17 +20,18 @@ public class MainScreen extends JFrame implements ActionListener{
   private Picture picture;
   private Background Backgrounds;
   private JComboBox cb;
+  private JButton audioButton;
   private ChordList chordList;
   private String mainChord;
   private String variationType;
+  //create a jpanel with borderlayout manager 
+  JPanel mainPanel = new JPanel(new BorderLayout());
   /**
   * Constructor sets up JFrame and JPanel and adds a combobox containing all 288 chord options
   */
   public MainScreen(){
     //set the size of the Jframe
     this.setSize(1212,595);
-    //create a jpanel with borderlayout manager 
-    JPanel mainPanel = new JPanel(new BorderLayout());
 
     //create the picture 
     this.picture = new Picture();
@@ -94,26 +101,69 @@ public class MainScreen extends JFrame implements ActionListener{
   public void actionPerformed(ActionEvent e){
     JComboBox cb = (JComboBox)e.getSource();
     String selectedChord = (String)cb.getSelectedItem();
-    updateScreen(selectedChord); 
+    try {
+		updateScreen(selectedChord);
+	} catch (UnsupportedAudioFileException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	} catch (IOException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	} catch (LineUnavailableException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	} 
   }
 
   /**
-  * This is a method that when called will update the screen once the user has selected a chord, this method calls the picture class and will display the fretboard photo aswell as the updated information about the chord
+  * This is a method that when called will update the screen once the user has selected a chord, this method calls the picture class and will display the fretboard photo as well as the updated information about the chord
   * @param the specific chord with its variation that the user has selected
+ * @throws IOException 
+ * @throws UnsupportedAudioFileException 
+ * @throws LineUnavailableException 
   */
-  public void updateScreen(String showSelectedChord){
+  public void updateScreen(String showSelectedChord) throws UnsupportedAudioFileException, IOException, LineUnavailableException{
     //update the image to show the second image and the chord information
     BufferedImage visuals = this.Backgrounds.getPicture("two");
     this.picture.showPicture(visuals);
     
-    //take only the first part of the chord requested to start finding the chord in the programs indexs
+    JButton audioButton = new JButton("Strum");
+    audioButton.setContentAreaFilled(false);
+	File soundFile = new File("Sounds/" + showSelectedChord + ".wav");
+	AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundFile);
+    Clip clip = AudioSystem.getClip();
+    clip.loop(Clip.LOOP_CONTINUOUSLY); // set loop to true
+	clip.open(audioStream);
+    
+    //add an action listener 
+    audioButton.addActionListener(new ActionListener() {
+
+        @Override
+        public void actionPerformed(ActionEvent e) 
+        {
+            clip.start();
+        }
+    });
+        
+    //add the button to the panel
+    mainPanel.add(audioButton, BorderLayout.WEST);
+
+    //make the x close the application
+    this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    //add the panel to the main MainScreen
+    this.add(mainPanel);
+    //make the frame visible
+    this.setVisible(true);
+
+    
+    //take only the first part of the chord requested to start finding the chord in the programs index's
     if(showSelectedChord.contains(" ")){
       String[] chordType = showSelectedChord.split(" ");
       this.mainChord = chordType[0];
       this.variationType = chordType[1];
     }
 
-    //acess the specified chord type and variation and send the correct infromation from the scanner to the picture class to be displayed
+    //access the specified chord type and variation and send the correct information from the scanner to the picture class to be displayed
     Chord currentGeneralChord = this.chordList.getName(mainChord);
     Scene currentChordVariation = currentGeneralChord.getVariation(variationType);
     this.picture.fillChordInfo(currentChordVariation.getXValues(),currentChordVariation.getYValues(),currentChordVariation.getSymbols());

@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.io.File;
 
 /**
 * This class stores all the information about each chord variation in variables 
@@ -22,7 +21,7 @@ public class Scene{
     xCoordinates = new int[6];
     yCoordinates = new int[6];
     playString = new String[6];
-    //fill all the variables with the correct infromation from the scanner 
+    //fill all the variables with the correct information from the scanner 
     this.variationName = information.next();
     this.audioFileName = information.next();
     for(int x = 0; x < xCoordinates.length; x++){
@@ -34,7 +33,7 @@ public class Scene{
   }
 
   /**
-  * Acessosor method to get the name of the chord variation 
+  * Getter method to get the name of the chord variation 
   * @return the variation of the chord 
   */
   public String getVariationName(){
@@ -42,7 +41,7 @@ public class Scene{
   }
 
   /**
-  * Acessor method to get the audio file name
+  * Getter method to get the audio file name
   * @return the audio file name
   */
   public String getAudioName(){
@@ -50,7 +49,7 @@ public class Scene{
   }
 
   /**
-  * Acessor method that will return the x coordinates
+  * Getter method that will return the x coordinates
   * @return an array full of all the x coordinates 
   */
   public int[] getXValues(){
@@ -58,7 +57,7 @@ public class Scene{
   }
 
   /**
-  * Acessor method that will return the y coordinates
+  * Getter method that will return the y coordinates
   * @return an array full of all the y coordinates 
   */
   public int[] getYValues(){
@@ -66,7 +65,7 @@ public class Scene{
   }
 
   /**
-  * Acesor method that will return the symbols
+  * Getter method that will return the symbols
   * @return an array full of all the symbols 
   */
   public String[] getSymbols(){
