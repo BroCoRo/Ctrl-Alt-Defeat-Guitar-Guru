@@ -25,8 +25,8 @@ public class Scene{
     this.variationName = information.next();
     this.audioFileName = information.next();
     for(int x = 0; x < xCoordinates.length; x++){
-      this.xCoordinates[x] = Integer.parseInt(information.next());
-      this.yCoordinates[x] = Integer.parseInt(information.next());
+      this.xCoordinates[x] = Integer.parseInt(information.next()) - 85; //adjust coordinates to suite the application
+      this.yCoordinates[x] = Integer.parseInt(information.next()) - 6; //adjust coordinates to suite the application
       this.playString[x] = information.next();
     }
     information.nextLine();
