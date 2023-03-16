@@ -129,11 +129,7 @@ public class MainScreen extends JFrame implements ActionListener{
     
     JButton audioButton = new JButton("Strum");
     audioButton.setContentAreaFilled(false);
-	File soundFile = new File("Sounds/" + showSelectedChord + ".wav");
-	AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundFile);
-    Clip clip = AudioSystem.getClip();
-    clip.loop(Clip.LOOP_CONTINUOUSLY); // set loop to true
-	clip.open(audioStream);
+	
     
     //add an action listener 
     audioButton.addActionListener(new ActionListener() {
@@ -141,10 +137,25 @@ public class MainScreen extends JFrame implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) 
         {
-            clip.start();
+        	
+            Clip clip;
+			try {
+				File soundFile = new File("Sounds/" + showSelectedChord + ".wav");
+	        	AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundFile);
+				clip = AudioSystem.getClip();
+				
+				 clip.loop(Clip.LOOP_CONTINUOUSLY); // set loop to true
+				clip.open(audioStream);
+				clip.start();
+			} catch (LineUnavailableException | UnsupportedAudioFileException | IOException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			}
+           
+           
+            
         }
     });
-        
     //add the button to the panel
     mainPanel.add(audioButton, BorderLayout.WEST);
 
