@@ -147,7 +147,6 @@ public class MainScreen extends JFrame implements ActionListener{
     {
     	soundFile = new File("Sounds/" + showSelectedChord + ".wav");
     }
-    //#♯
     else 
     {
     	tempFixedFlatName = tempFixedFlatName.replace('/', '-');
