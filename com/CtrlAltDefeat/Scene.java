@@ -1,3 +1,4 @@
+package com.CtrlAltDefeat;
 import java.util.Scanner;
 
 /**

@@ -1,9 +1,10 @@
 /Background.class
 /Chord.class
 /ChordList.class
+/Iterator.class
 /Main.class
+/MainScreen$1.class
 /MainScreen.class
 /Picture.class
 /Scene.class
-/MainScreen$1.class
-/Iterator.class
+/Aggregate.class

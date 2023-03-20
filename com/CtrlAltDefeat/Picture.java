@@ -1,3 +1,4 @@
+package com.CtrlAltDefeat;
 import java.awt.Graphics;
 import javax.swing.JComponent;
 import java.awt.image.BufferedImage;
