@@ -29,14 +29,19 @@ public class Guitar implements Aggregate{
   */
   public Chord getName(String chordName){
     //Start a for loop to cycle through all the indexes in search of the requested chord
-    for(int x = 0; x<guitar.length; x++){
+	  Iterator gutiarIterator = createIterator();
+    while(gutiarIterator.hasNext()) {
       //has the chord been found?
-      if((this.guitar[x].getName()).equals(chordName)){
-        return this.guitar[x];
+    	Chord currentChord = (Chord)gutiarIterator.next();
+    	
+      if((currentChord.getName()).equals(chordName)){
+    	  
+        return currentChord;
+        
       }
     } 
     //return statement to skip errors (only will run if no name is found but all names will be pre-entered so this line should never run)
-    return this.guitar[0];
+    return null;
   }
 @Override
 public Iterator createIterator() {
