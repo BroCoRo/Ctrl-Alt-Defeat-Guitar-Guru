@@ -2,7 +2,7 @@ package com.CtrlAltDefeat;
 
 public class GuitarIterator implements Iterator 
 {
-	public GuitarIterator(Chord chord)
+	public GuitarIterator(Guitar guitar)
 	{
 		
 	}

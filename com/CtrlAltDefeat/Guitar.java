@@ -37,6 +37,12 @@ public class Guitar implements Aggregate{
     } 
     //return statement to skip errors (only will run if no name is found but all names will be pre-entered so this line should never run)
     return this.guitar[0];
-  } 
+  }
+@Override
+public Iterator createIterator() {
+	// TODO Auto-generated method stub
+	
+	return new GuitarIterator(this);
+} 
 
 }
