@@ -130,37 +130,37 @@ public class MainScreen extends JFrame implements ActionListener{
     
     JButton audioButton = new JButton("Strum");
     audioButton.setContentAreaFilled(false);
-	String tempFixedFlatName = showSelectedChord;
+	String tempFixedName = showSelectedChord;
 
     //sound files cannot include a flat symbol so check for this character and replace it where needed
-    if(showSelectedChord.indexOf('♭') == -1)
+    if(tempFixedName.indexOf('♭') == -1)
     {
-    	soundFile = new File("Sounds/" + showSelectedChord + ".wav");
+    	soundFile = new File("Sounds/" + tempFixedName + ".wav");
     }
     else 
     {
-    	tempFixedFlatName = tempFixedFlatName.replace('♭', 'b');
-    	soundFile = new File("Sounds/" + tempFixedFlatName + ".wav");
+    	tempFixedName = tempFixedName.replace('♭', 'b');
+    	soundFile = new File("Sounds/" + tempFixedName + ".wav");
 	}
     //sound files cannot include a / symbol so check for this character and replace it where needed
-    if(tempFixedFlatName.indexOf('/') == -1)
+    if(tempFixedName.indexOf('/') == -1)
     {
-    	soundFile = new File("Sounds/" + showSelectedChord + ".wav");
+    	soundFile = new File("Sounds/" + tempFixedName + ".wav");
     }
     else 
     {
-    	tempFixedFlatName = tempFixedFlatName.replace('/', '-');
-    	soundFile = new File("Sounds/" + tempFixedFlatName + ".wav");
+    	tempFixedName = tempFixedName.replace('/', '-');
+    	soundFile = new File("Sounds/" + tempFixedName + ".wav");
 	}
     //sound files cannot include a ♯ symbol so check for this character and replace it where needed
-    if(tempFixedFlatName.indexOf('♯') == -1)
+    if(tempFixedName.indexOf('♯') == -1)
     {
-    	soundFile = new File("Sounds/" + showSelectedChord + ".wav");
+    	soundFile = new File("Sounds/" + tempFixedName + ".wav");
     }
     else 
     {
-    	tempFixedFlatName = tempFixedFlatName.replace('♯', '#');
-    	soundFile = new File("Sounds/" + tempFixedFlatName + ".wav");
+    	tempFixedName = tempFixedName.replace('♯', '#');
+    	soundFile = new File("Sounds/" + tempFixedName + ".wav");
 	}
     
 	//add an action listener 
