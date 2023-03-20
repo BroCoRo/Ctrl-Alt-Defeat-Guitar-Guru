@@ -5,7 +5,7 @@ import java.util.Scanner;
 * This represents all the individual chords making up the chord of the guitar 
 * @author OWen Garland
 */
-public class ChordList{
+public class Guitar implements Aggregate{
   //instance variables
   private Chord[] guitar;
 
@@ -13,7 +13,7 @@ public class ChordList{
   * Constructor to make the guitar array storing all of the chords 
   * @param the scanner input
   */
-  public ChordList(Scanner scanner){
+  public Guitar(Scanner scanner){
     //create the array with 288 positions for the chords 
     this.guitar = new Chord[12];
     //create a for loop to fill the array-information from scanner is to be sent to the Chord class 

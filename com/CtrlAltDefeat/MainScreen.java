@@ -20,7 +20,7 @@ public class MainScreen extends JFrame implements ActionListener{
   //instance variables 
   private Picture picture;
   private Background Backgrounds;
-  private ChordList chordList;
+  private Guitar chordList;
   private String mainChord;
   private String variationType;
   //create a jpanel with borderlayout manager 
@@ -87,7 +87,7 @@ public class MainScreen extends JFrame implements ActionListener{
     try{
       information = new Scanner(new File("chords.txt"));
       //create the guitar (a collection of all the chords)
-      this.chordList = new ChordList(information);
+      this.chordList = new Guitar(information);
     }catch(Exception e){
       e.printStackTrace();
     }
