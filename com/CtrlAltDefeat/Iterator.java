@@ -1,5 +1,7 @@
 package com.CtrlAltDefeat;
 
-public interface Iterator {
-
+public interface Iterator 
+{
+	boolean hasNext();
+	Object next();
 }

@@ -1,5 +1,6 @@
 package com.CtrlAltDefeat;
 
-public interface Aggregate {
-
+public interface Aggregate 
+{
+	Iterator createIterator();
 }
