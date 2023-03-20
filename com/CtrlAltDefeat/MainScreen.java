@@ -69,6 +69,7 @@ public class MainScreen extends JFrame implements ActionListener{
 
       "G♯/A♭ M","G♯/A♭ min","G♯/A♭ Aug","G♯/A♭ Sus2","G♯/A♭ Sus4","G♯/A♭ 5","G♯/A♭ 6","G♯/A♭ 7","G♯/A♭ maj7","G♯/A♭ 7sus4","G♯/A♭ 9","G♯/A♭ add9","G♯/A♭ m6","G♯/A♭ m7","G♯/A♭ m7♭5","G♯/A♭ m9","G♯/A♭ 11","G♯/A♭ 13","G♯/A♭ 9♭","G♯/A♭ 9♯","G♯/A♭ 13♭","G♯/A♭ 7dim","G♯/A♭ 7♭5","G♯/A♭ Dim",
       };
+    
     JComboBox cb = new JComboBox(choices);
     //add an action listener 
     cb.addActionListener(this);
@@ -133,36 +134,7 @@ public class MainScreen extends JFrame implements ActionListener{
     audioButton.setContentAreaFilled(false);
 	String tempFixedName = showSelectedChord;
 
-    //sound files cannot include a flat symbol so check for this character and replace it where needed
-    if(tempFixedName.indexOf('♭') == -1)
-    {
-    	soundFile = new File("Sounds/" + tempFixedName + ".wav");
-    }
-    else 
-    {
-    	tempFixedName = tempFixedName.replace('♭', 'b');
-    	soundFile = new File("Sounds/" + tempFixedName + ".wav");
-	}
-    //sound files cannot include a / symbol so check for this character and replace it where needed
-    if(tempFixedName.indexOf('/') == -1)
-    {
-    	soundFile = new File("Sounds/" + tempFixedName + ".wav");
-    }
-    else 
-    {
-    	tempFixedName = tempFixedName.replace('/', '-');
-    	soundFile = new File("Sounds/" + tempFixedName + ".wav");
-	}
-    //sound files cannot include a ♯ symbol so check for this character and replace it where needed
-    if(tempFixedName.indexOf('♯') == -1)
-    {
-    	soundFile = new File("Sounds/" + tempFixedName + ".wav");
-    }
-    else 
-    {
-    	tempFixedName = tempFixedName.replace('♯', '#');
-    	soundFile = new File("Sounds/" + tempFixedName + ".wav");
-	}
+    chordNameEdgeCaseChecker(tempFixedName);
     
 	//add an action listener 
     audioButton.addActionListener(new ActionListener() {
@@ -208,4 +180,37 @@ public class MainScreen extends JFrame implements ActionListener{
     this.picture.showChordScene();
 
   }
+
+private void chordNameEdgeCaseChecker(String tempFixedName) {
+	//sound files cannot include a flat symbol so check for this character and replace it where needed
+    if(tempFixedName.indexOf('♭') == -1)
+    {
+    	soundFile = new File("Sounds/" + tempFixedName + ".wav");
+    }
+    else 
+    {
+    	tempFixedName = tempFixedName.replace('♭', 'b');
+    	soundFile = new File("Sounds/" + tempFixedName + ".wav");
+	}
+    //sound files cannot include a / symbol so check for this character and replace it where needed
+    if(tempFixedName.indexOf('/') == -1)
+    {
+    	soundFile = new File("Sounds/" + tempFixedName + ".wav");
+    }
+    else 
+    {
+    	tempFixedName = tempFixedName.replace('/', '-');
+    	soundFile = new File("Sounds/" + tempFixedName + ".wav");
+	}
+    //sound files cannot include a ♯ symbol so check for this character and replace it where needed
+    if(tempFixedName.indexOf('♯') == -1)
+    {
+    	soundFile = new File("Sounds/" + tempFixedName + ".wav");
+    }
+    else 
+    {
+    	tempFixedName = tempFixedName.replace('♯', '#');
+    	soundFile = new File("Sounds/" + tempFixedName + ".wav");
+	}
+}
 }

@@ -39,7 +39,13 @@ public class Chord{
     //create a variable to store the index to return as you cannot return a value inside a switch case
     int variationIndex;
     //start a switch case to find a specific variation of a chord 
-    switch(variationName){
+    variationIndex = variationSwitchCase(variationName);
+    return scene[variationIndex];
+  }
+
+private int variationSwitchCase(String variationName) {
+	int variationIndex;
+	switch(variationName){
       case "M":
         variationIndex = 0;
         break;
@@ -116,6 +122,6 @@ public class Chord{
         variationIndex = 0;
         break;
     }
-    return scene[variationIndex];
-  }
+	return variationIndex;
+}
 }
