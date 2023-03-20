@@ -31,6 +31,7 @@ public class MainScreen extends JFrame implements ActionListener{
   public MainScreen(){
     //set the size of the Jframe
     this.setSize(1212,595);
+    this.setResizable(false);
 
     //create the picture 
     this.picture = new Picture();
