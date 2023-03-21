@@ -5,7 +5,7 @@ import java.util.Scanner;
 * This is a chord class, this represents a chord storing information about a particular chord on the guitar like how to play the chord, what the chord sounds like, the name of the chord etc.
 * @author Brodin Collins-Robb, Owen Garland, Tyler Schiefley and Patryk Zbikowski
 */
-public class Chord{
+public class Chord {
   //instance variables
   private String name;
   private Scene[] scene;
