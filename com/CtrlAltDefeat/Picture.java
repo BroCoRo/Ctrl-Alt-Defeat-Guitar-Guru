@@ -7,7 +7,7 @@ import javax.swing.*;
 
 /**
 * A J Component that will display any image to the screen
-* @author Brodin Collins-Robb
+* @author Brodin Collins-Robb, Owen Garland, Tyler Scheifley and Patryk Zbikowski
 */
 public class Picture extends JComponent{
 

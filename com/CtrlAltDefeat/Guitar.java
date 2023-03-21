@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
 * This represents all the individual chords making up the chord of the guitar 
-* @author OWen Garland
+* @author Brodin Collins-Robb, Owen Garland, Tyler Schiefley and Patryk Zbikowski
 */
 public class Guitar implements Aggregate{
   //instance variables

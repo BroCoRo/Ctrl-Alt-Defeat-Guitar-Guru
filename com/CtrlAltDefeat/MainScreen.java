@@ -14,7 +14,7 @@ import javax.sound.sampled.Clip;
 
 /**
 * Create a mainscreen that will display everything that happens in the app
-* @author Brodin Collins-Robb
+* @author Brodin Collins-Robb, Owen Garland, Tyler Scheifley and Patryk Zbikowski
 */
 public class MainScreen extends JFrame implements ActionListener{
   //instance variables 

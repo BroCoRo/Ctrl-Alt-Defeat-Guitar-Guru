@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 /**
 * This class stores all the information about each chord variation in variables 
-* @author Brodin Collins-Robb
+* @author Brodin Collins-Robb, Owen Garland, Tyler Schiefley and Patryk Zbikowski
 */
 public class Scene{
   //instance variables 

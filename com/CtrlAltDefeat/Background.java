@@ -5,7 +5,7 @@ import java.io.File;
 
 /**
 * Stores the background images 
-* @author Brodin Collins-Robb
+* @author Brodin Collins-Robb, Owen Garland, Tyler Schiefley and Patryk Zbikowski
 */
 public class Background{
 
