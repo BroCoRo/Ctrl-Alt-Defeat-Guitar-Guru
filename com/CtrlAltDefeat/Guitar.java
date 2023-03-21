@@ -27,13 +27,13 @@ public class Guitar implements Aggregate{
   /**
   * When called it will return the name of chord as well as the index the chord name was found in so that all the information about the chord will be with the chord name 
   * @param the name of the chord
-  * @return the index in which the chord is being stored 
   */
   public Chord getName(String chordName){
     //Start a loop to cycle through all the indexes in search of the requested chord
+	//iterator design pattern
 	  Iterator gutiarIterator = createIterator();
     while(gutiarIterator.hasNext()) {
-      //has the chord been found?
+      
     	Chord currentChord = (Chord)gutiarIterator.next();
     	
       if((currentChord.getName()).equals(chordName)){
