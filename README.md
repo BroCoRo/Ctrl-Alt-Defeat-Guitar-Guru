@@ -1,10 +1,12 @@
 # Guitar Guru
-![Screenshot 2023-08-23 231828](https://github.com/BroCoRo/Ctrl-Alt-Defeat-Guitar-Guru/assets/85836332/39c08cd0-3342-4433-9e44-9e96c217114a)
+![Logo](https://github.com/BroCoRo/Ctrl-Alt-Defeat-Guitar-Guru/assets/85836332/ccab13f6-d309-4c8c-ba2d-08d3f25ea6d9)
 
+---
 This application is an interactive way for new guitar players to get comfortable with all of the basic chords on the guitar without needing to fully understand how to read sheet music! This app shows players where to place their fingers on the guitar and allow users to hear each chord. Note: Every sound and photo in this app was self-created!
 
-![Screenshot 2023-08-23 231840](https://github.com/BroCoRo/Ctrl-Alt-Defeat-Guitar-Guru/assets/85836332/320e0497-b563-4ada-90ad-4d8b96bb8276)
-![Screenshot 2023-708-23 231828](https://github.com/BroCoRo/Ctrl-Alt-Defeat-Guitar-Guru/assets/85836332/f8057afc-0e73-4a66-bfc0-db4c7be55c44)
+![Screenshot 2023-08-23 231840](https://github.com/BroCoRo/Ctrl-Alt-Defeat-Guitar-Guru/assets/85836332/0639b743-4d95-40a4-aa28-0d3d38f144cc)
+![Screenshot 2023-708-23 231828](https://github.com/BroCoRo/Ctrl-Alt-Defeat-Guitar-Guru/assets/85836332/902cd797-9657-44a8-a9f0-95b121203b94)
+
 
 This app supports the following chords:
 ---
